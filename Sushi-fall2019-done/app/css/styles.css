@@ -1,0 +1,177 @@
+@import url('http://fonts.googleapis.com/css?family=Lato:300,400,700');
+/* CSS rule:
+selector{
+  
+}
+  */
+body {
+  margin: 12px;
+  color: #333;
+  font-family: 'Lato', Verdana, Arial, sans-serif;
+  background-color: #ddd;
+}
+a {
+  color: #007eb6;
+}
+header {
+  font-family: 'Lobster', cursive;
+  font-weight: normal;
+}
+header h1,
+header h2 {
+  font-size: 4rem;
+  margin: 8px 0;
+  color: #600;
+}
+header h2 {
+  font-size: 2rem;
+}
+.nav {
+  list-style: none;
+  padding: 0;
+  position: absolute;
+  right: 0;
+  top: 24px;
+}
+.nav li {
+  display: inline-block;
+  margin-right: 10px;
+}
+.nav a {
+  color: #fff;
+  text-decoration: none;
+  background-color: #600;
+  padding: 6px;
+  transition: all 0.5s cubic-bezier(1, -0.42, 0.34, 1.38);
+}
+.nav a:hover {
+  color: #222;
+  background-color: #f0dfb4;
+  padding: 8px;
+}
+aside {
+  position: absolute;
+  top: 200px;
+  left: 24px;
+  width: 180px;
+  background-color: #f0dfb4;
+  padding: 6px;
+  border: 1px solid #600;
+  font-size: 0.875rem;
+  box-shadow: 0px 0px 6px 2px #aaa;
+  border-radius: 4px;
+}
+aside th {
+  text-align: right;
+}
+aside ul {
+  list-style: none;
+  margin: 0.5rem;
+  padding: 0;
+}
+article {
+  margin: 0 20px 0 240px;
+}
+article h2 {
+  font-weight: 600;
+  color: #600;
+  border-bottom: 1px dotted #600;
+}
+blockquote {
+  float: right;
+  width: 40%;
+  font-size: 24px;
+}
+article img {
+  float: right;
+}
+/* adds unselectable quote marks, theyre not actually in the HTML */
+blockquote:before {
+  content: '“';
+  font-size: 4rem;
+  font-family: serif;
+  color: #333;
+  line-height: 0.1em;
+  vertical-align: -0.4em;
+  color: #600;
+}
+/* 'adjacent sibling selector': find the aside tag in HTML then find first paragraph after it.
+The + means "the next folowing"
+bolds first line of a paragraph */
+aside + p::first-line {
+  font-weight: bold;
+}
+#wrapper {
+  background-color: #fff;
+  padding: 1rem;
+  box-shadow: 0px 0px 6px 2px #aaa;
+  max-width: 840px;
+  margin: 0 auto;
+  position: relative;
+}
+footer {
+  font-size: smaller;
+}
+
+.popover {
+  padding: 1rem;
+  width: 300px;
+  height: 225px;
+  background: #fff;
+  border: 2px solid #600;
+  border-radius: 4px;
+  position: fixed;
+  top: calc(50% - 112px);
+  left: calc(50% - 150px);
+  display: none;
+}
+
+.showme .popover {
+  display: block;
+}
+
+.showme #wrapper {
+  filter: blur(4px) grayscale(100%) opacity(50%);
+}
+
+/* when you go to print something 
+* means select everything */
+@media print {
+  * {
+    /* display: none; */
+    color: red;
+  }
+}
+/* a real media query */
+@media (max-width: 800px){
+  body{
+    margin: 0;
+  }
+  article {
+    margin-left: 0;
+  }
+  .nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin: 4px;
+    display: flex; /* ideal for mobile design*/
+    background-color: #600;
+    /* min-height: 32px; */
+  }
+  .nav li{
+    margin: 0;
+    flex-grow: 1;
+  }
+  .nav li a{
+    background-color: transparent;
+  }
+  aside {
+    position:static;
+    width: 100%;
+  }
+  article img,
+  blockquote {
+    float: none;
+  }
+}
